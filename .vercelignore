@@ -1,0 +1,11 @@
+_source/
+*.HEIC
+.DS_Store
+.git/
+.gitignore
+README.md
+creatives/
+assets/proofs/
+assets/raw/
+**/*debug*
+**/*plate*

@@ -1,0 +1,10 @@
+{
+  "name": "scan-de-achados-landing",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Landing page Scan de Achados — conversão para grupo WhatsApp",
+  "scripts": {
+    "dev": "python3 -m http.server 5173",
+    "start": "python3 -m http.server 5173"
+  }
+}

@@ -1,0 +1,11 @@
+.DS_Store
+.vercel
+node_modules/
+.env
+.env.*
+*.log
+_source/
+*.HEIC
+creatives/imagine_refs/
+creatives/*-plate.jpg
+creatives/*-raw-plate.jpg
