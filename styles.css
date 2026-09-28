@@ -724,3 +724,41 @@ a { color: inherit; }
   .topbar__pulse, .float-tag { animation: none; }
   .sticky-cta { transition: none; }
 }
+
+/* Canal alternativo (Telegram) — secundário, não compete com o CTA do WhatsApp */
+.alt-channel {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 0.95rem;
+  color: var(--muted);
+  text-decoration: none;
+}
+.alt-channel strong { color: #229ed9; font-weight: 700; }
+.alt-channel:hover strong { text-decoration: underline; }
+.final-cta__box .alt-channel { display: block; text-align: center; }
+
+/* Prova real logo no hero */
+.deal-today {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 12px;
+  margin-top: 16px;
+  padding: 12px 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow);
+}
+.deal-today__tag {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  background: var(--primary-soft);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+.deal-today__name { font-weight: 600; color: var(--text); }
+.deal-today__price { margin-left: auto; white-space: nowrap; }
+.deal-today__price s { color: #a8a29e; margin-right: 4px; }
+.deal-today__price strong { color: var(--primary); font-family: var(--display); font-size: 1.15rem; }

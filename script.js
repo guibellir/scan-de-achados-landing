@@ -56,6 +56,25 @@
     });
   });
 
+  // Telegram (canal alternativo) — também conta como Lead: é uma pessoa a mais recebendo as ofertas
+  document.querySelectorAll(".js-cta-telegram").forEach(function (el) {
+    el.addEventListener("click", function () {
+      try {
+        if (typeof window.fbq === "function") {
+          window.fbq("track", "Lead", {
+            content_name: "telegram_channel_join",
+            content_category: el.getAttribute("data-cta") || "telegram",
+          });
+          window.fbq("trackCustom", "TelegramClick", {
+            placement: el.getAttribute("data-cta") || "telegram",
+          });
+        }
+      } catch (e) {
+        /* ignore */
+      }
+    });
+  });
+
   // Sticky CTA
   var sticky = document.getElementById("stickyCta");
   if (sticky) {
