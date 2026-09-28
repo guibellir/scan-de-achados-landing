@@ -32,7 +32,31 @@
     }
   }
 
+  // Clique também vai pro app (Crescimento do grupo) — sendBeacon/text/plain: sem preflight, não atrasa o clique
+  var CLICK_ENDPOINT = "https://app.scandeachados.com/api/public/landing-click";
+  function logClick(channel, placement) {
+    try {
+      var p = new URLSearchParams(window.location.search);
+      var payload = JSON.stringify({
+        channel: channel,
+        placement: placement || null,
+        utm_source: p.get("utm_source"),
+        utm_medium: p.get("utm_medium"),
+        utm_campaign: p.get("utm_campaign"),
+        utm_content: p.get("utm_content"),
+      });
+      if (navigator.sendBeacon) {
+        navigator.sendBeacon(CLICK_ENDPOINT, new Blob([payload], { type: "text/plain" }));
+      } else {
+        fetch(CLICK_ENDPOINT, { method: "POST", body: payload, keepalive: true, mode: "no-cors" });
+      }
+    } catch (e) {
+      /* ignore */
+    }
+  }
+
   function trackLead(ctaPlace) {
+    logClick("whatsapp", ctaPlace);
     try {
       if (typeof window.fbq === "function") {
         window.fbq("track", "Lead", {
@@ -59,6 +83,7 @@
   // Telegram (canal alternativo) — também conta como Lead: é uma pessoa a mais recebendo as ofertas
   document.querySelectorAll(".js-cta-telegram").forEach(function (el) {
     el.addEventListener("click", function () {
+      logClick("telegram", el.getAttribute("data-cta") || "telegram");
       try {
         if (typeof window.fbq === "function") {
           window.fbq("track", "Lead", {

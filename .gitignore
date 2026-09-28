@@ -9,3 +9,7 @@ _source/
 creatives/imagine_refs/
 creatives/*-plate.jpg
 creatives/*-raw-plate.jpg
+
+# Criativos gerados localmente (Remotion/.env com chave, node_modules, renders)
+creatives/remotion/
+creatives/v2/
